@@ -30,7 +30,7 @@ fi
 
 sshHost=$(awk -F@ '{print $2}' <<<$1)
 killall
-ssh -p $SSH_PORT -L 0.0.0.0:18083:$sshHost:$PORT $SSH_HOST "killall vboxwebsrv; \"$VBOXWEBSRVPATH\" -p $PORT -A null -H $sshHost"
+ssh -p $SSH_PORT -L 0.0.0.0:18083:$sshHost:$PORT $SSH_HOST "killall vboxwebsrv; \"$VBOXWEBSRVPATH\" -p $PORT -A null -H $sshHost --background"
 
 # wait forever
 while true
